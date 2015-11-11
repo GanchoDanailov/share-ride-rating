@@ -1,2 +1,2 @@
 # share-ride-rating
-sahre ride rating system
+share-ride rating system
