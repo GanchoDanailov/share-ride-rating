@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Node Authentication</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+  <style>
+    body {
+      padding-top: 80px;
+    }
+  </style>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+      var url = window.location.href;
+      //var urlNoToken = url.substring(0, url.indexOf("/reset"));
+
+      //urlNoToken = urlNoToken + "/reset";
+      //var token = url.match(/token\/(.+)/)[1];
+      $(".submit").click(function() {
+        var password= $(".password").val();
+        var confirm= $(".confirm").val();
+        $.post(url, {
+            password: password,
+            confirm: confirm
+          },
+          function(data, status) {
+            //alert("Data: " + data + "\nStatus: " + status);
+            var domain = url.substring(0, url.indexOf("/reset"));
+            url=domain+"/login"
+            window.location.href = url;
+          });
+      });
+
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-sm-6 col-sm-offset-3">
+
+      <!-- LOGIN FORM -->
+
+        <div class="form-group">
+          <label>New Password</label>
+          <input type="password" class="form-control password">
+        </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" class="form-control confirm">
+        </div>
+
+        <button class="btn btn-warning btn-lg reset submit">Reset Password</button>
+
+
+
+    </div>
+  </div>
+</body>
+
+</html>
