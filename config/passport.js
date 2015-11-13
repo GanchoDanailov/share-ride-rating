@@ -155,6 +155,7 @@ module.exports = function(passport) {
         profileFields: ['id', 'displayName', 'name', 'gender', 'email', 'photos']
     },
     function(req, token, refreshToken, profile, done) {
+      console.log(profile);
 
         // asynchronous
         process.nextTick(function() {

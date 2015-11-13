@@ -8,7 +8,7 @@ module.exports = function(app, passport, acl) {
     //var acl = require('./middlewares/aclMiddleware');
 
     // show the home page (will also have our login links)
-    app.get('/', function(req, res) {
+    app.get('/index', function(req, res) {
         res.render('index.ejs');
     });
 
@@ -61,7 +61,9 @@ module.exports = function(app, passport, acl) {
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook'),
         function(req, res) {
-            console.log(req);
+            //console.log(req);
+            console.log("done");
+            res.send('done');
         });
 
     // twitter --------------------------------

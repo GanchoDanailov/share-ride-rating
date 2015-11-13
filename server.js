@@ -45,7 +45,7 @@ app.use(bodyParser());
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 app.use(express.static('public'));
-
+app.use(express.static('app/kor'));
 // required for passport
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
 app.use(passport.initialize());
